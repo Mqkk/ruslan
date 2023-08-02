@@ -1,5 +1,9 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <div class="site-container">
+      <main class="main">Хуй</main>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -9,13 +13,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+  font-family: $font-family, sans-serif;
+  -webkit-text-size-adjust: 100%;
 }
 </style>
