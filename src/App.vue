@@ -24,5 +24,6 @@ export default {
   height: 100%;
   font-family: $font-family, sans-serif;
   -webkit-text-size-adjust: 100%;
+  color: $text-color;
 }
 </style>
