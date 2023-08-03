@@ -1,15 +1,21 @@
 <template>
   <div id="app">
     <div class="site-container">
-      <main class="main">Хуй</main>
+      <main class="main">
+        <w-header />
+      </main>
     </div>
   </div>
 </template>
 
 <script>
+import wHeader from "./components/w-header.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    wHeader,
+  },
 };
 </script>
 

@@ -1,8 +1,26 @@
-  // base
-  $font-family: "Intro", sans-serif;
-  $content-width: 1170px;
-  $container-offset: 15px;
-  $container-width: calc($content-width + ($container-offset * 2));
+// base
+$font-family: "Intro", sans-serif;
+$content-width: 1302px;
+$container-offset: 15px;
+$container-width: calc($content-width + ($container-offset * 2));
 
-  // colors
-  $light-color: #fff;
+// colors
+$light-color: #fff;
+$yellow-color: #ffdd2d;
+$blue-color: #2b6bf3;
+$dark-color: #1d253c;
+$moon-color: #c2d2f4;
+$pink-color: #FD466E;
+$link-water-color: #F1F4FC;
+$green-light-color: #6FCF97;
+$green-color: #27AE60;
+
+// font-size
+$fz-h1: 40px;
+$fz-h2: 24px;
+$fz-h3: 22px;
+$fz-h4: 22px;
+$fz-h5: 18px;
+$fz-txt: 16px;
+$fz-txt2: 14px;
+$fz-txt-menu: 18px;
