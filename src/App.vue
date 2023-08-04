@@ -3,6 +3,7 @@
     <div class="site-container">
       <main class="main">
         <w-header />
+        <router-view />
       </main>
     </div>
   </div>

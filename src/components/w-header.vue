@@ -85,7 +85,7 @@ export default {
     position: relative;
     font-size: $fz-txt;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 150%;
     color: $text-color;
 
     &:hover {
