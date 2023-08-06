@@ -1,0 +1,20 @@
+.section-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 39px;
+
+  &__title {
+    margin-bottom: 29px;
+  }
+
+  &__descr {
+    margin: 0;
+    max-width: 754px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 145.5%;
+    color: rgba($dark-color, $alpha: 0.48);
+  }
+}

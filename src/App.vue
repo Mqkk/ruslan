@@ -4,19 +4,22 @@
       <main class="main">
         <w-header />
         <router-view />
+        <w-footer/>
       </main>
     </div>
   </div>
 </template>
 
 <script>
+import wFooter from "./components/w-footer.vue";
 import wHeader from "./components/w-header.vue";
 
 export default {
   name: "App",
   components: {
     wHeader,
-  },
+    wFooter
+},
 };
 </script>
 

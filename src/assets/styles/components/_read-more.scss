@@ -1,0 +1,18 @@
+.read-more {
+  display: inline-flex;
+  align-items: center;
+
+  &__text {
+    margin-right: 8px;
+    font-family: "Intro";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 133%;
+    color: $blue-color;
+    cursor: pointer;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
