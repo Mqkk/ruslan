@@ -38,8 +38,8 @@ export default {
 
 <style lang="scss" scoped>
 .story {
-  padding-top: 100px;
-  padding-bottom: 84px;
+  padding-top: 95px;
+  padding-bottom: 89px;
 
   &__container {
     max-width: 1190px;

@@ -2,10 +2,10 @@
   <div class="home">
     <w-hero-section />
     <w-express-delivery-section />
-    <w-what-we-do-section />
-    <w-story-section />
-    <w-payment />
     <w-our-partners />
+    <w-what-we-do-section />
+    <w-payment />
+    <w-story-section />
   </div>
 </template>
 

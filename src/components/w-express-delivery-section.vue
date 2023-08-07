@@ -67,8 +67,27 @@ export default {
 
 <style lang="scss" scoped>
 .express-delivery {
+  position: relative;
   padding-top: 91px;
-  padding-bottom: 82px;
+  padding-bottom: 94px;
+  border-bottom: 2px solid $blue-light-color;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -16px;
+    z-index: 1000;
+    margin: 0 auto;
+    width: 100px;
+    height: 28px;
+    background-position: center;
+    background-size: 32px 28px;
+    background-repeat: no-repeat;
+    background-image: url("../assets/img/decor-box.svg");
+    background-color: $light-color;
+  }
 
   &__container {
     display: flex;
@@ -128,6 +147,8 @@ export default {
   }
 
   &:hover {
+    border: 1px solid $light-color;
+    outline: 2px solid $blue-color;
     background-color: $light-color;
   }
 }

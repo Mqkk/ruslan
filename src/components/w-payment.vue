@@ -1,17 +1,20 @@
 <template>
   <section class="payment">
     <div class="payment__container container">
-      <div class="section-top">
+      <div class="section-top payment__top">
         <h2 class="section-top__title title title--h2">Payment methods</h2>
       </div>
       <div class="payment-swiper">
         <swiper
           :modules="modules"
           :slides-per-view="6"
-          :space-between="20"
+          :space-between="104"
           @swiper="onSwiper"
           @slideChange="onSlideChange"
-          navigation
+          :navigation="{
+            prevEl: prev,
+            nextEl: next,
+          }"
         >
           <swiper-slide
             v-for="item in items"
@@ -22,13 +25,20 @@
               <img :src="item.img" :alt="item.name" />
             </div>
           </swiper-slide>
+          <template #navigation>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </template>
         </swiper>
+        <div ref="prev" class="swiper-button-prev"></div>
+        <div ref="next" class="swiper-button-next"></div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -89,15 +99,19 @@ export default {
   },
   setup() {
     const onSwiper = (swiper) => {
-      console.log(swiper);
+      return swiper;
     };
     const onSlideChange = () => {
-      console.log("slide change");
+      return
     };
+    const prev = ref(null);
+    const next = ref(null);
     return {
       onSwiper,
       onSlideChange,
       modules: [Navigation],
+      prev,
+      next,
     };
   },
 };
@@ -105,22 +119,59 @@ export default {
 
 <style lang="scss" scoped>
 .payment {
-  &__container {
-    padding-bottom: 96px;
-    max-width: 1190px;
-  }
-}
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  border-bottom: 2px solid $blue-light-color;
 
-.payment-slide {
-  &__img {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -16px;
+    z-index: 1000;
+    margin: 0 auto;
+    width: 100px;
+    height: 28px;
+    background-position: center;
+    background-size: 32px 28px;
+    background-repeat: no-repeat;
+    background-image: url("../assets/img/decor-box.svg");
+    background-color: $light-color;
+  }
+
+  &__container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    max-width: 1190px;
+  }
+
+  &__top {
+    margin-bottom: 24px;
   }
 }
 
-.swiper-button-prev,
+.payment-swiper {
+  position: relative;
+  width: 1025px;
+}
+
+.swiper-button-prev {
+  left: -74px;
+  top: 27px;
+}
+
 .swiper-button-next {
-  color: $dark-color;
+  right: -74px;
+  top: 27px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-weight: 700;
+  font-size: 25px;
+  color: rgba($dark-color, $alpha: 0.16);
 }
 </style>

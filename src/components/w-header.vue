@@ -8,7 +8,16 @@
           <span>NY, Manhattan</span>
         </div>
       </div>
-      <div class="header__search"></div>
+      <div class="header__search">
+        <form class="form search">
+          <input
+            type="text"
+            class="input-reset search__input"
+            placeholder="Track a Package"
+          />
+          <button class="btn-reset search__btn"></button>
+        </form>
+      </div>
       <ul class="list-reset header__menu header-menu">
         <li class="header-menu__item">
           <router-link to="/" class="header-menu__link"
@@ -162,6 +171,61 @@ export default {
         height: 1px;
         border-bottom: 1px dashed #c1cfef;
       }
+    }
+  }
+}
+
+.search {
+  position: relative;
+  margin-right: 43px;
+
+  &__input {
+    outline: none;
+    border: 1px solid $blue-light-color;
+    border-radius: 8px;
+    padding: 12.5px 16px;
+    padding-right: 45px;
+    width: 184px;
+    height: 40px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 24px;
+    color: $dark-color;
+
+    &::placeholder {
+      color: rgba($dark-color, $alpha: 0.56);
+    }
+
+    &:focus-visible {
+      border: 1px solid $blue-color;
+      background-color: $light-color;
+
+      & ~ .search__btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-image: url("../assets/img/search-icon.svg");
+    opacity: 0.3;
+
+    &:hover,
+    &:focus {
+      background-color: #f1f5ff;
+    }
+  }
+
+  &:hover {
+    .search__input {
+      background-color: #f1f5ff;
     }
   }
 }

@@ -120,6 +120,7 @@ export default {
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-top: 2px;
   }
 
   &__list {

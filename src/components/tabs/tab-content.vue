@@ -10,10 +10,10 @@
           placeholder="location"
         />
       </label>
-      <label for="location" class="form__label">
+      <label for="dropLocation" class="form__label">
         Drop location
         <input
-          id="location"
+          id="dropLocation"
           type="text"
           class="input-reset form__input"
           placeholder="location"
@@ -36,15 +36,18 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-position: left;
+  background-position: left 23px;
   background-size: 24px 112px;
   background-repeat: no-repeat;
   background-image: url("/src/assets/img/sand-a-parcel/decor.svg");
 
   &__label {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    overflow: hidden;
+    display: grid;
+    gap: 6px;
+    padding-left: 39px;
+    padding-bottom: 5px;
     width: 100%;
     font-family: "Intro";
     font-weight: 700;
@@ -58,14 +61,29 @@ export default {
       opacity: 0.7;
     }
 
-    &:not(:last-child) {
-      margin-bottom: 37px;
+    &:focus {
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 10;
+        bottom: 2px;
+        margin-left: 39px;
+        border-radius: 4px;
+        width: 100%;
+        height: 2px;
+        background-color: $blue-color;
+      }
+    }
+
+    &:first-child {
+      margin-bottom: 34px;
     }
 
     &::after {
       content: "";
       position: absolute;
-      bottom: 0;
+      bottom: 2px;
+      margin-left: 39px;
       border-radius: 4px;
       width: 100%;
       height: 2px;
@@ -74,6 +92,7 @@ export default {
   }
 
   &__input {
+    font-family: "IntroBook";
     font-size: 16px;
     line-height: 24px;
     color: $dark-color;
@@ -88,19 +107,34 @@ export default {
     &:focus {
       outline: none;
     }
+
+    &:focus-visible {
+      outline: none;
+      & ~ .form__label::before {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        margin-left: 39px;
+        border-radius: 4px;
+        width: 100%;
+        height: 2px;
+        background-color: $blue-color;
+      }
+    }
   }
 
   &__btn {
-    margin-bottom: 16px;
+    margin-top: 39px;
+    margin-bottom: 15px;
   }
 
   &__clear {
-    padding-left: 10px;
+    padding-left: 15px;
     font-family: inherit;
     font-size: 16px;
     line-height: 24px;
     color: #999;
-    background-position: left;
+    background-position: -1px;
     background-size: 8px;
     background-repeat: no-repeat;
     background-image: url("/src/assets/img/sand-a-parcel/x-mark.svg");

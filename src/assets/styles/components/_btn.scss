@@ -13,16 +13,17 @@
   background-color: $blue-color;
   transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
 
+  &:hover {
+    background-color: #1252db;
+  }
+
   &--yellow {
     color: $dark-color;
     background-color: $yellow-color;
 
     &:hover {
       color: $light-color;
+      background-color: $yellow-color;
     }
-  }
-
-  &:hover {
-    background-color: #1252DB;
   }
 }

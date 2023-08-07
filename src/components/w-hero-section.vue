@@ -29,11 +29,13 @@
         </router-link>
         <div class="hero__block-video block-video">
           <h3 class="block-video__title title title--h3">How it works</h3>
-          <div class="block-video__video"></div>
+          <div class="block-video__video">
+            <button class="btn-reset block-video__btn"></button>
+          </div>
         </div>
       </div>
       <div class="hero__right">
-        <w-sand-a-parcel />
+        <w-send-a-parcel />
         <w-track-a-package />
       </div>
     </div>
@@ -41,13 +43,13 @@
 </template>
 
 <script>
-import wSandAParcel from "./w-sand-a-parcel.vue";
+import wSendAParcel from "./w-send-a-parcel.vue";
 import wTrackAPackage from "./w-track-a-package.vue";
 
 export default {
   name: "w-hero-section",
   components: {
-    wSandAParcel,
+    wSendAParcel,
     wTrackAPackage,
   },
 };
@@ -119,6 +121,36 @@ export default {
 .block-video {
   &__title {
     margin-bottom: 22px;
+  }
+
+  &__video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    width: 374px;
+    height: 232px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../assets/img/video.jpg");
+  }
+
+  &__btn {
+    border-radius: 100%;
+    width: 96px;
+    height: 96px;
+    background-position: center;
+    background-repeat: 29px 40px;
+    background-repeat: no-repeat;
+    background-image: url("../assets/img/play-icon.svg");
+    background-color: rgba($color: #000000, $alpha: 0.32);
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: rgba($color: #000000, $alpha: 0.48);
+    }
   }
 }
 </style>

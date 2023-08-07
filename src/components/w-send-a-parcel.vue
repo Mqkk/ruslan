@@ -1,8 +1,19 @@
 <template>
-  <div class="sand-a-parcel">
-    <h3 class="sand-a-parcel__title title title--h3">Send a Parcel</h3>
-    <div class="sand-a-parcel__tabs tabs">
-      <ul class="list-reset tabs-nav sand-a-parcel__tabs-nav">
+  <div class="send-a-parcel">
+    <div class="send-a-parcel__top">
+      <h3 class="send-a-parcel__title title title--h3">Send a Parcel</h3>
+      <div class="tooltip send-a-parcel__tooltip">
+        <span class="tooltip__icon"></span>
+        <span class="tooltip__text">
+          <p>
+            A commission is a piece of work that someone is asked to do and is
+            paid for.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div class="send-a-parcel__tabs tabs">
+      <ul class="list-reset tabs-nav send-a-parcel__tabs-nav">
         <li class="tabs-nav__item" v-for="(tab, index) in tabs" :key="index">
           <button
             class="btn-reset tabs-nav__btn"
@@ -22,14 +33,14 @@
 </template>
 
 <script>
-import manIcon from "../assets/img/sand-a-parcel/man-icon.svg";
-import carIcon from "../assets/img/sand-a-parcel/car-icon.svg";
-import truckIcon from "../assets/img/sand-a-parcel/truck-icon.svg";
+import manIcon from "../assets/img/send-a-parcel/man-icon.png";
+import carIcon from "../assets/img/send-a-parcel/car-icon.png";
+import truckIcon from "../assets/img/send-a-parcel/truck-icon.png";
 import tabContent from "../components/tabs/tab-content.vue";
 import tabContentSecond from "../components/tabs/tab-content-second.vue";
 
 export default {
-  name: "w-sand-a-parcel",
+  name: "w-send-a-parcel",
   components: {
     tabContent,
     tabContentSecond,
@@ -65,19 +76,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sand-a-parcel {
+.send-a-parcel {
   border: 2px solid $blue-light-color;
   border-radius: 8px;
-  padding: 39px 32px 24px;
+  padding: 32px 29px 24px;
   width: 100%;
-  height: 100%;
+  height: 500px;
   max-width: 360px;
-  max-height: 500px;
   box-shadow: 0 8px 16px rgba($blue-color, $alpha: 0.08);
   background-color: $light-color;
 
+  &__top {
+    display: flex;
+    margin-bottom: 25px;
+  }
+
   &__title {
-    margin-bottom: 20px;
+    margin-right: 17px;
+  }
+
+  &__tooltip {
+    margin-top: 2px;
   }
 
   &__tabs-nav {
@@ -87,9 +106,11 @@ export default {
 
 .tabs-nav {
   display: flex;
+  border: 1px solid $blue-light-color;
   border-radius: 8px;
   width: 100%;
   max-width: 296px;
+  height: 84px;
   background-color: #eff4ff;
 
   &__item {
@@ -97,25 +118,65 @@ export default {
 
     &:first-child {
       .tabs-nav__btn {
+        border-right: 1px solid $blue-light-color;
         border-radius: 8px 0 0 8px;
+
+        &.active {
+          border-right: 2px solid $blue-color;
+        }
+      }
+
+      .tabs-nav__img {
+        top: 6px;
       }
     }
 
     &:last-child {
       .tabs-nav__btn {
+        border-left: 1px solid $blue-light-color;
         border-radius: 0 8px 8px 0;
+
+        &.active {
+          border-left: 2px solid $blue-color;
+        }
       }
     }
   }
 
   &__btn {
+    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    &.active {
-      background-color: $dark-color;
+
+    &:hover {
+      opacity: 0.7;
     }
+
+    &.active {
+      border: 2px solid $blue-color;
+      background-color: $light-color;
+
+      span {
+        color: $dark-color;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: -1px;
+    pointer-events: none;
+  }
+
+  &__name {
+    font-family: "IntroBook";
+    font-size: 12px;
+    line-height: 24px;
+    padding-bottom: 8px;
   }
 }
 

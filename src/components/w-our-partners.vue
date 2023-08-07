@@ -3,7 +3,9 @@
     <div class="our-partners__container container">
       <div class="section-top">
         <h2 class="section-top__title title title--h2">Our Partners</h2>
-        <router-link to="/" class="our-partners__btn">Let's collaborate</router-link>
+        <router-link to="/" class="our-partners__btn"
+          >Let's collaborate</router-link
+        >
       </div>
       <div class="our-partners-swiper">
         <swiper
@@ -94,10 +96,10 @@ export default {
   },
   setup() {
     const onSwiper = (swiper) => {
-      console.log(swiper);
+      return swiper;
     };
     const onSlideChange = () => {
-      console.log("slide change");
+      return;
     };
     return {
       onSwiper,
@@ -109,22 +111,25 @@ export default {
 
 <style lang="scss" scoped>
 .our-partners {
+  padding-top: 91px;
+  padding-bottom: 45px;
+
   &__container {
-    max-width: 1134px;
-    padding-bottom: 47px;
+    max-width: 1243px;
   }
 
   &__btn {
     position: absolute;
-    right: 0;
+    right: 26px;
+    top: 5px;
     border: 1px solid #dde7fd;
     border-radius: 24px;
-    padding: 8px 16px;
-    padding-left: 35px;
+    padding: 7px 17px;
+    padding-left: 41px;
     font-size: 16px;
     line-height: 150%;
     color: $dark-color;
-    background-position: 10px center;
+    background-position: 15px 9px;
     background-size: 17px 16px;
     background-repeat: no-repeat;
     background-image: url("../assets/img/our-partners/briefcase-icon.svg");
@@ -135,10 +140,16 @@ export default {
     }
   }
 }
+
+.our-partners-swiper {
+  margin-top: 54px;
+}
+
 .our-partners-slide {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 53px;
 
   &__img {
     position: relative;

@@ -5,7 +5,7 @@
       <input
         type="text"
         class="input-reset search__input"
-        placeholder="Enter Code"
+        placeholder="Enter code"
       />
       <button class="btn-reset search__btn"></button>
     </form>
@@ -21,13 +21,13 @@ export default {
 <style lang="scss" scoped>
 .track-a-package {
   border-radius: 8px;
-  padding: 31px 40px 32px;
+  padding: 26px 40px 32px;
   width: 360px;
   background-color: $yellow-color;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 
   &__title {
-    margin-bottom: 9px;
+    margin-bottom: 15px;
   }
 }
 
@@ -42,6 +42,7 @@ export default {
     height: 40px;
     font-family: inherit;
     font-size: 16px;
+    line-height: 24px;
     color: $dark-color;
 
     &::placeholder {
@@ -51,7 +52,7 @@ export default {
 
   &__btn {
     position: absolute;
-    right: 4px;
+    right: 1px;
     width: 40px;
     height: 40px;
     background-position: center;
