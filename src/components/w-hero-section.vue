@@ -60,6 +60,8 @@ export default {
   &__container {
     position: relative;
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     min-height: 784px;
@@ -104,6 +106,13 @@ export default {
 
   &__link {
     margin-bottom: 83px;
+  }
+
+  &__right {
+    z-index: 1;
+    display: grid;
+    gap: 72px;
+    margin-top: 36px;
   }
 }
 

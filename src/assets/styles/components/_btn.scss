@@ -1,22 +1,28 @@
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 32px;
-    font-family: "Intro";
-    width: 296px;
-    padding: 8px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-    transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px;
+  font-family: "Intro";
+  width: 296px;
+  padding: 8px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  color: $light-color;
+  background-color: $blue-color;
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
 
-    &--yellow {
-        color: $dark-color;
-        background-color: $yellow-color;
+  &--yellow {
+    color: $dark-color;
+    background-color: $yellow-color;
 
-        &:hover {
-            color: $light-color;
-        }
+    &:hover {
+      color: $light-color;
     }
+  }
+
+  &:hover {
+    background-color: #1252DB;
+  }
 }
