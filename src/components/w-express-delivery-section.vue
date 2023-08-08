@@ -100,6 +100,17 @@ export default {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
     max-width: 1000px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 300px;
+    }
+  }
+
+  @include mobile {
+    padding-top: 54px;
+    padding-bottom: 64px;
   }
 }
 

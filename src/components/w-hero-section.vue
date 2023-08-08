@@ -12,20 +12,7 @@
         </p>
         <router-link to="/" class="hero__link read-more">
           <span class="read-more__text">Read more</span>
-          <span class="read-more__icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="5"
-              height="8"
-              viewBox="0 0 5 8"
-              fill="none"
-            >
-              <path
-                d="M4.72351 3.30468L1.61047 0.269411C1.24206 -0.0898037 0.644732 -0.0898037 0.276314 0.269411C-0.0921045 0.628626 -0.0921046 1.21103 0.276314 1.57024L2.76841 4.00008L0.276486 6.42976C-0.0919318 6.78897 -0.0919317 7.37137 0.276486 7.73059C0.644904 8.0898 1.24223 8.0898 1.61065 7.73059L4.72369 4.69531C4.92006 4.50384 5.01177 4.24896 4.99879 3.99827C5.01075 3.74869 4.91899 3.49527 4.72351 3.30468Z"
-                fill="#2B6BF3"
-              />
-            </svg>
-          </span>
+          <span class="read-more__icon"></span>
         </router-link>
         <div class="hero__block-video block-video">
           <h3 class="block-video__title title title--h3">How it works</h3>
@@ -82,6 +69,17 @@ export default {
       background-size: 446px;
       background-repeat: no-repeat;
       background-image: url("../assets/img/hero/bg-statue.svg");
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      flex-direction: column-reverse;
+      padding-bottom: 80px;
+      background-position: center bottom;
+      background-size: 328px;
     }
   }
 
@@ -92,11 +90,19 @@ export default {
     flex-direction: column;
     padding-top: 59px;
     padding-left: 71px;
+
+    @include mobile {
+      padding-left: 0;
+    }
   }
 
   &__title {
     margin-bottom: 34px;
     max-width: 375px;
+
+    @include mobile {
+      margin-bottom: 14px;
+    }
   }
 
   &__descr {
@@ -104,10 +110,18 @@ export default {
     margin-bottom: 34px;
     max-width: 360px;
     line-height: 150%;
+
+    @include mobile {
+      margin-bottom: 14px;
+    }
   }
 
   &__link {
     margin-bottom: 83px;
+
+    @include mobile {
+      margin-bottom: 37px;
+    }
   }
 
   &__right {
@@ -115,12 +129,23 @@ export default {
     display: grid;
     gap: 72px;
     margin-top: 36px;
+
+    @include mobile {
+      gap: 32px;
+      width: 100%;
+    }
   }
 }
 
 .block-video {
+  width: 100%;
+
   &__title {
     margin-bottom: 22px;
+
+    @include mobile {
+      margin-bottom: 17px;
+    }
   }
 
   &__video {
@@ -134,6 +159,12 @@ export default {
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url("../assets/img/video.jpg");
+
+    @include mobile {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+    }
   }
 
   &__btn {

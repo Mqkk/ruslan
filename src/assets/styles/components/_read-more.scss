@@ -12,6 +12,15 @@
     cursor: pointer;
   }
 
+  &__icon {
+    width: 5px;
+    height: 8px;
+    background-position: center;
+    background-size: 5px 8px;
+    background-repeat: no-repeat;
+    background-image: url("/src/assets/img/arrow-right.svg");
+  }
+
   &:hover {
     opacity: 0.7;
   }

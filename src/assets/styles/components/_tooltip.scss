@@ -9,7 +9,7 @@
     background-position: center;
     background-size: 2px 12px;
     background-repeat: no-repeat;
-    background-image: url("/src/assets/img/sand-a-parcel/info.svg");
+    background-image: url("/src/assets/img/send-a-parcel/info.svg");
     background-color: #dde7fd;
     transition: background-color 0.1s ease-in-out;
     cursor: pointer;
@@ -39,6 +39,10 @@
       font-size: 14px;
       line-height: 171%;
       color: $dark-color;
+    }
+
+    @include mobile {
+      right: -56px;
     }
   }
 }

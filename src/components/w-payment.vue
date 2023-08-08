@@ -7,8 +7,10 @@
       <div class="payment-swiper">
         <swiper
           :modules="modules"
-          :slides-per-view="6"
-          :space-between="104"
+          :slides-per-view="2.5"
+          :space-between="20"
+          :breakpoints="breakpoints"
+          :loop="true"
           @swiper="onSwiper"
           @slideChange="onSlideChange"
           :navigation="{
@@ -95,6 +97,14 @@ export default {
           img: americanExpress,
         },
       ],
+      breakpoints: {
+        425: {
+          slidesPerView: 6,
+          initialSlide: 1,
+          spaceBetween: 106,
+          loop: false
+        },
+      },
     };
   },
   setup() {
@@ -102,7 +112,7 @@ export default {
       return swiper;
     };
     const onSlideChange = () => {
-      return
+      return;
     };
     const prev = ref(null);
     const next = ref(null);
@@ -145,6 +155,7 @@ export default {
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-right: 0;
     max-width: 1190px;
   }
 
@@ -156,6 +167,10 @@ export default {
 .payment-swiper {
   position: relative;
   width: 1025px;
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .swiper-button-prev {

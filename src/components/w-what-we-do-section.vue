@@ -58,7 +58,10 @@
             <p class="what-we-do-item__descr">
               You can pay for delivery by card or in cash at any of the order
               addresses. For legal entities non-cash is available.
-              <router-link class="what-we-do-item__circle-link circle-link" to="/" />
+              <router-link
+                class="what-we-do-item__circle-link circle-link"
+                to="/"
+              />
             </p>
           </li>
         </ul>
@@ -101,17 +104,28 @@ export default {
     }
 
     &::after {
-        content: "";
-        z-index: 0;
-        position: absolute;
-        right: -37px;
-        top: -72px;
-        width: 220px;
-        height: 504px;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-image: url(../assets/img/what-we-do/bg-element.png);
+      content: "";
+      z-index: 0;
+      position: absolute;
+      right: -37px;
+      top: -72px;
+      width: 220px;
+      height: 504px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(../assets/img/what-we-do/bg-element.png);
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      padding-top: 54px;
+      padding-bottom: 48px;
     }
   }
 
@@ -129,12 +143,20 @@ export default {
     gap: 50px;
     margin-bottom: 41px;
     max-width: 1000px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
 .what-we-do-item {
   &__title {
     margin-bottom: 21px;
+
+    @include mobile {
+      text-align: center;
+    }
   }
 
   &__link {
@@ -152,18 +174,51 @@ export default {
     background-color: $light-color;
     box-shadow: 0 8px 16px rgba(43, 107, 243, 0.16);
     pointer-events: none;
+
+    @include mobile {
+      width: 64px;
+      height: 64px;
+    }
   }
 
   &__descr {
     position: relative;
     margin: 0;
     line-height: 150%;
+
+    @include mobile {
+      text-align: center;
+    }
   }
 
   &__circle-link {
     position: absolute;
     right: 15px;
     bottom: 3px;
+  }
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &:nth-child(1) {
+      .img {
+        width: 32px;
+      }
+    }
+
+    &:nth-child(2) {
+      .img {
+        width: 28px;
+      }
+    }
+
+    &:nth-child(3) {
+      .img {
+        width: 31px;
+      }
+    }
   }
 }
 </style>

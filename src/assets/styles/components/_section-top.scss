@@ -7,6 +7,12 @@
 
   &__title {
     margin-bottom: 29px;
+
+    @include mobile {
+      margin-bottom: 11px;
+      max-width: 240px;
+      text-align: center;
+    }
   }
 
   &__descr {
@@ -16,5 +22,10 @@
     font-size: 22px;
     line-height: 145.5%;
     color: rgba($dark-color, $alpha: 0.48);
+
+    @include mobile {
+      font-size: 20px;
+      line-height: 160%;
+    }
   }
 }

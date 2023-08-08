@@ -2,6 +2,7 @@
   <header class="header">
     <div class="container header__container">
       <div class="header__left">
+        <router-link to="/" class="header__login-btn" />
         <div class="header__logo logo"></div>
         <div class="select">
           <div class="select__icon"></div>
@@ -18,6 +19,10 @@
           <button class="btn-reset search__btn"></button>
         </form>
       </div>
+      <button
+        class="btn-reset header-menu-btn"
+        @click="isSideMenuOpen = true"
+      ></button>
       <ul class="list-reset header__menu header-menu">
         <li class="header-menu__item">
           <router-link to="/" class="header-menu__link"
@@ -36,11 +41,22 @@
       </ul>
     </div>
   </header>
+  <w-side-menu :is-open="isSideMenuOpen" @close="isSideMenuOpen = false" />
 </template>
 
 <script>
+import wSideMenu from "./w-side-menu.vue";
+
 export default {
   name: "w-header",
+  components: {
+    wSideMenu,
+  },
+  data() {
+    return {
+      isSideMenuOpen: false,
+    };
+  },
 };
 </script>
 
@@ -73,6 +89,30 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../assets/img/logo.svg");
+
+    @include mobile {
+      margin-right: 0;
+      width: 120px;
+      height: 40px;
+    }
+  }
+
+  &__login-btn {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-image: url("../assets/img/profile-icon.svg");
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  @include mobile {
+    min-height: 64px;
   }
 }
 
@@ -134,6 +174,24 @@ export default {
       }
     }
   }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.header-menu-btn {
+  display: none;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-image: url("../assets/img/header-burger.svg");
+
+  @include mobile {
+    display: block;
+  }
 }
 
 .select {
@@ -172,6 +230,10 @@ export default {
         border-bottom: 1px dashed #c1cfef;
       }
     }
+  }
+
+  @include mobile {
+    display: none;
   }
 }
 
@@ -227,6 +289,10 @@ export default {
     .search__input {
       background-color: #f1f5ff;
     }
+  }
+
+  @include mobile {
+    display: none;
   }
 }
 </style>

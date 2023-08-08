@@ -144,7 +144,13 @@
       </div>
       <div class="footer__bottom">
         <span class="footer__copy"> © 2022. All rights reserved. </span>
-        <a href="https://pyrobyte.ru/" target="_blank" class="footer__logo"></a>
+        <div class="footer__center">
+          <a
+            href="https://pyrobyte.ru/"
+            target="_blank"
+            class="footer__logo"
+          ></a>
+        </div>
         <router-link to="/" class="footer__link">Privacy policy</router-link>
       </div>
     </div>
@@ -169,6 +175,11 @@ export default {
     padding-top: 80px;
     padding-bottom: 56px;
     max-width: 1190px;
+
+    @include mobile {
+      padding-top: 40px;
+      padding-bottom: 32px;
+    }
   }
 
   &__top {
@@ -176,6 +187,12 @@ export default {
     justify-content: space-between;
     margin-bottom: 42px;
     width: 100%;
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+    }
   }
 
   &__title {
@@ -185,6 +202,10 @@ export default {
     height: 28px;
     max-width: 200px;
     border-bottom: 2px solid $blue-light-color;
+
+    @include mobile {
+      max-width: 100%;
+    }
   }
 
   &__bottom {
@@ -198,22 +219,60 @@ export default {
     width: 100%;
 
     &::before {
-    content: "Made by";
-    position: absolute;
-    margin: 0 auto;
-    left: 1px;
-    right: 0;
-    top: -13px;
-    width: 73px;
-    height: 24px;
-    font-family: "Intro";
-    text-align: center;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    color: $blue-light-color;
-    background-color: $bg-color;
+      content: "Made by";
+      position: absolute;
+      margin: 0 auto;
+      left: 1px;
+      right: 0;
+      top: -13px;
+      width: 73px;
+      height: 24px;
+      font-family: "Intro";
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      color: $blue-light-color;
+      background-color: $bg-color;
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      display: grid;
+      justify-items: center;
+      justify-content: center;
+      border-top: none;
+      padding: 0;
+    }
   }
+
+  &__center {
+    position: relative;
+
+    @include mobile {
+      border-top: 2px solid rgba($blue-light-color, $alpha: 0.7);
+
+      &::before {
+        content: "Made by";
+        position: absolute;
+        margin: 0 auto;
+        left: 1px;
+        right: 0;
+        top: -13px;
+        width: 73px;
+        height: 24px;
+        font-family: "Intro";
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: $blue-light-color;
+        background-color: $bg-color;
+      }
+    }
   }
 
   &__copy {
@@ -224,6 +283,7 @@ export default {
   }
 
   &__logo {
+    display: block;
     margin-left: -43px;
     width: 85px;
     height: 64px;
@@ -233,6 +293,7 @@ export default {
     background-image: url("../assets/img/footer/pyrobyte.svg");
 
     @include mobile {
+      margin-left: 0;
       background-image: url("../assets/img/footer/pyrobyte-mobile.svg");
     }
   }
@@ -250,6 +311,10 @@ export default {
 
     &:hover {
       opacity: 0.7;
+    }
+
+    @include mobile {
+      grid-row-start: 1;
     }
   }
 }
@@ -273,6 +338,11 @@ export default {
       line-height: 171%;
     }
   }
+
+  @include mobile {
+    grid-column: 2 span;
+    margin-bottom: 32px;
+  }
 }
 
 .footer-menu {
@@ -291,8 +361,12 @@ export default {
     color: rgba($dark-color, $alpha: 0.64);
 
     &:hover {
-        opacity: 0.7;
+      opacity: 0.7;
     }
+  }
+
+  @include mobile {
+    grid-column: 1 span;
   }
 }
 
@@ -328,6 +402,16 @@ export default {
     background-size: 12px 16px;
     background-repeat: no-repeat;
     background-image: url("../assets/img/footer/dot-icon.svg");
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include mobile {
+    grid-column: 2 span;
+    margin-top: 42px;
+    max-width: 100%;
   }
 }
 
@@ -348,11 +432,15 @@ export default {
     width: 40px;
     height: 40px;
     background-color: $blue-color;
-    transition: background -color 0.1s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
 
     &:hover {
       background-color: rgba($blue-color, $alpha: 0.7);
     }
+  }
+
+  @include mobile {
+    justify-content: center;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <section class="our-partners">
     <div class="our-partners__container container">
-      <div class="section-top">
+      <div class="section-top our-partners__top">
         <h2 class="section-top__title title title--h2">Our Partners</h2>
         <router-link to="/" class="our-partners__btn"
           >Let's collaborate</router-link
@@ -9,8 +9,12 @@
       </div>
       <div class="our-partners-swiper">
         <swiper
-          :slides-per-view="5"
+          :initial-slide="2"
+          :loop="true"
+          :centered-slides="true"
+          :slides-per-view="2.3"
           :space-between="20"
+          :breakpoints="breakpoints"
           @swiper="onSwiper"
           @slideChange="onSlideChange"
         >
@@ -92,6 +96,14 @@ export default {
           imgNoColor: guitarCenterImgNoColor,
         },
       ],
+      breakpoints: {
+        425: {
+          slidesPerView: 5,
+          initialSlide: 1,
+          loop: false,
+          centeredSlides: false,
+        },
+      },
     };
   },
   setup() {
@@ -115,6 +127,8 @@ export default {
   padding-bottom: 45px;
 
   &__container {
+    padding-left: 0;
+    padding-right: 0;
     max-width: 1243px;
   }
 
@@ -138,11 +152,31 @@ export default {
     &:hover {
       opacity: 0.7;
     }
+
+    @include mobile {
+      left: 0;
+      right: 0;
+      top: 170px;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 328px;
+      text-align: center;
+      background-position: 85px 9px;
+    }
+  }
+
+  @include mobile {
+    padding-top: 54px;
+    padding-bottom: 120px;
   }
 }
 
 .our-partners-swiper {
   margin-top: 54px;
+
+  @include mobile {
+    margin-top: 24px;
+  }
 }
 
 .our-partners-slide {
@@ -165,6 +199,19 @@ export default {
       &:hover {
         overflow: auto;
         opacity: 1;
+      }
+
+      @include mobile {
+        overflow: auto;
+        opacity: 1;
+        pointer-events: none;
+      }
+    }
+
+    &-no-color {
+      @include mobile {
+        overflow: hidden;
+        opacity: 0;
       }
     }
   }

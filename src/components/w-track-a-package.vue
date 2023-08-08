@@ -28,6 +28,15 @@ export default {
 
   &__title {
     margin-bottom: 15px;
+
+    @include mobile {
+      margin-bottom: 9px;
+    }
+  }
+
+  @include mobile {
+    padding: 23px 16px 24px;
+    width: 100%;
   }
 }
 

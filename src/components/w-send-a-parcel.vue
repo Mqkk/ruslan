@@ -101,6 +101,17 @@ export default {
 
   &__tabs-nav {
     margin-bottom: 34px;
+
+    @include mobile {
+      margin-bottom: 37px;
+    }
+  }
+
+  @include mobile {
+    padding: 39px 16px 24px;
+    width: 100%;
+    height: 472px;
+    max-width: 100%;
   }
 }
 
@@ -177,6 +188,14 @@ export default {
     font-size: 12px;
     line-height: 24px;
     padding-bottom: 8px;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    height: 56px;
   }
 }
 

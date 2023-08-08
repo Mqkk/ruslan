@@ -8,6 +8,7 @@
           type="text"
           class="input-reset form__input"
           placeholder="location"
+          v-model="inputLocation"
         />
       </label>
       <label for="dropLocation" class="form__label">
@@ -17,10 +18,13 @@
           type="text"
           class="input-reset form__input"
           placeholder="location"
+          v-model="inputDropLocation"
         />
       </label>
       <button class="btn-reset btn form__btn">Order</button>
-      <button class="btn-reset form__clear">Clear All</button>
+      <button class="btn-reset form__clear" @click.prevent="clearForm">
+        Clear All
+      </button>
     </form>
   </div>
 </template>
@@ -28,6 +32,18 @@
 <script>
 export default {
   name: "tab-content",
+  data() {
+    return {
+      inputLocation: "",
+      inputDropLocation: "",
+    };
+  },
+  methods: {
+    clearForm() {
+      this.inputLocation = "";
+      this.inputDropLocation = "";
+    },
+  },
 };
 </script>
 
@@ -39,7 +55,7 @@ export default {
   background-position: left 23px;
   background-size: 24px 112px;
   background-repeat: no-repeat;
-  background-image: url("/src/assets/img/sand-a-parcel/decor.svg");
+  background-image: url("/src/assets/img/send-a-parcel/decor.svg");
 
   &__label {
     position: relative;
@@ -126,6 +142,10 @@ export default {
   &__btn {
     margin-top: 39px;
     margin-bottom: 15px;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__clear {
@@ -137,7 +157,7 @@ export default {
     background-position: -1px;
     background-size: 8px;
     background-repeat: no-repeat;
-    background-image: url("/src/assets/img/sand-a-parcel/x-mark.svg");
+    background-image: url("/src/assets/img/send-a-parcel/x-mark.svg");
   }
 }
 </style>
