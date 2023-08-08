@@ -28,4 +28,8 @@
       line-height: 160%;
     }
   }
+
+  @include mobile {
+    margin-bottom: 21px;
+  }
 }

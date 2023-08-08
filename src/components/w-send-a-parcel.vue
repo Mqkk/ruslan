@@ -89,6 +89,10 @@ export default {
   &__top {
     display: flex;
     margin-bottom: 25px;
+
+    @include mobile {
+      margin-bottom: 22px;
+    }
   }
 
   &__title {
@@ -108,7 +112,7 @@ export default {
   }
 
   @include mobile {
-    padding: 39px 16px 24px;
+    padding: 32px 14px 24px;
     width: 100%;
     height: 472px;
     max-width: 100%;
@@ -165,6 +169,10 @@ export default {
 
     &:hover {
       opacity: 0.7;
+
+      @include mobile {
+        opacity: 1;
+      }
     }
 
     &.active {

@@ -79,6 +79,11 @@ export default {
   &__left {
     display: flex;
     align-items: center;
+
+    @include mobile {
+      justify-content: space-between;
+      width: 100%;
+    }
   }
 
   &__logo {
@@ -91,7 +96,7 @@ export default {
     background-image: url("../assets/img/logo.svg");
 
     @include mobile {
-      margin-right: 0;
+      margin-right: 87px;
       width: 120px;
       height: 40px;
     }
@@ -108,6 +113,7 @@ export default {
 
     @include mobile {
       display: block;
+      margin-left: 1px;
     }
   }
 

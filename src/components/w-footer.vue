@@ -178,7 +178,7 @@ export default {
 
     @include mobile {
       padding-top: 40px;
-      padding-bottom: 32px;
+      padding-bottom: 24px;
     }
   }
 
@@ -244,6 +244,7 @@ export default {
       display: grid;
       justify-items: center;
       justify-content: center;
+      grid-template-columns: 1fr;
       border-top: none;
       padding: 0;
     }
@@ -253,7 +254,11 @@ export default {
     position: relative;
 
     @include mobile {
+      display: flex;
+      justify-content: center;
       border-top: 2px solid rgba($blue-light-color, $alpha: 0.7);
+      padding-top: 24px;
+      width: 100%;
 
       &::before {
         content: "Made by";
@@ -280,6 +285,11 @@ export default {
     font-size: 14px;
     line-height: 171%;
     color: rgba($dark-color, $alpha: 0.64);
+
+    @include mobile {
+      margin-top: 24px;
+      margin-bottom: 38px;
+    }
   }
 
   &__logo {
@@ -329,6 +339,7 @@ export default {
 
   &__title {
     border-bottom: none;
+    margin-left: -61px;
   }
 
   &__content {
@@ -404,13 +415,18 @@ export default {
     background-image: url("../assets/img/footer/dot-icon.svg");
 
     @include mobile {
-      margin-bottom: 24px;
+      margin-bottom: 32px;
+      max-width: 300px;
+
+      br {
+        display: none;
+      }
     }
   }
 
   @include mobile {
     grid-column: 2 span;
-    margin-top: 42px;
+    margin-top: 38px;
     max-width: 100%;
   }
 }
@@ -421,6 +437,10 @@ export default {
   &__item {
     &:not(:last-child) {
       margin-right: 24px;
+
+      @include mobile {
+        margin-right: 38px;
+      }
     }
   }
 

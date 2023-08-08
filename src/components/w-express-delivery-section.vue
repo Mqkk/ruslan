@@ -57,7 +57,7 @@ export default {
           title: "Affiliate Program",
           img: iconAffiliateProgram,
           descr:
-            "Use our service and feel new quality of this traditional service!",
+            "Use our service and feel\n new quality of this traditional service!",
         },
       ],
     };
@@ -109,8 +109,8 @@ export default {
   }
 
   @include mobile {
-    padding-top: 54px;
-    padding-bottom: 64px;
+    padding-top: 48px;
+    padding-bottom: 62px;
   }
 }
 
@@ -123,6 +123,11 @@ export default {
 
   &__title {
     margin-bottom: 21px;
+
+    @include mobile {
+      margin-bottom: 23px;
+      font-size: 20px;
+    }
   }
 
   &__icon {
@@ -152,8 +157,14 @@ export default {
   }
 
   &:nth-child(2) {
+    padding: 19px 24px 15px 23px;
+
+    .express-delivery-item__icon {
+      margin-bottom: 36px;
+    }
     .express-delivery-item__descr {
-      max-width: 180px;
+      max-width: 181px;
+      padding-bottom: 4px;
     }
   }
 
@@ -161,6 +172,16 @@ export default {
     border: 1px solid $light-color;
     outline: 2px solid $blue-color;
     background-color: $light-color;
+  }
+
+  @include mobile {
+    &:nth-child(3) {
+      grid-row-start: 2;
+
+      .express-delivery-item__descr {
+        max-width: 220px;
+      }
+    }
   }
 }
 </style>

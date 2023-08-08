@@ -2,7 +2,7 @@
   <section class="what-we-do">
     <div class="what-we-do__container container">
       <div class="section-top">
-        <h2 class="section-top__title title title--h2">What we do</h2>
+        <h2 class="section-top__title what-we-do__title title title--h2">What we do</h2>
         <p class="section-top__descr">
           Express courier service in the city. We are a reliable logistics
           partner for delivery services for online stores and restaurants!
@@ -124,8 +124,14 @@ export default {
     @include mobile {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      padding-top: 54px;
+      padding-top: 48px;
       padding-bottom: 48px;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      margin-left: 4px;
     }
   }
 
@@ -135,6 +141,10 @@ export default {
     align-items: center;
     flex-direction: column;
     padding-top: 2px;
+
+    @include mobile {
+      padding-top: 16px;
+    }
   }
 
   &__list {
@@ -146,6 +156,7 @@ export default {
 
     @include mobile {
       grid-template-columns: 1fr;
+      gap: 41px;
     }
   }
 }
@@ -155,6 +166,8 @@ export default {
     margin-bottom: 21px;
 
     @include mobile {
+      margin-bottom: 16px;
+      font-size: 20px;
       text-align: center;
     }
   }
@@ -187,6 +200,7 @@ export default {
     line-height: 150%;
 
     @include mobile {
+      max-width: 323px;
       text-align: center;
     }
   }
@@ -195,6 +209,10 @@ export default {
     position: absolute;
     right: 15px;
     bottom: 3px;
+
+    @include mobile {
+      right: 21px;
+    }
   }
 
   @include mobile {

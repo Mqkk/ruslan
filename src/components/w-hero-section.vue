@@ -78,7 +78,7 @@ export default {
     @include mobile {
       flex-direction: column-reverse;
       padding-bottom: 80px;
-      background-position: center bottom;
+      background-position: center 873px;
       background-size: 328px;
     }
   }
@@ -93,26 +93,28 @@ export default {
 
     @include mobile {
       padding-left: 0;
+      padding-top: 40px;
     }
   }
 
   &__title {
     margin-bottom: 34px;
-    max-width: 375px;
+    max-width: 376px;
 
     @include mobile {
       margin-bottom: 14px;
+      max-width: 236px;
     }
   }
 
   &__descr {
     margin: 0;
     margin-bottom: 34px;
-    max-width: 360px;
+    max-width: 361px;
     line-height: 150%;
 
     @include mobile {
-      margin-bottom: 14px;
+      margin-bottom: 17px;
     }
   }
 
@@ -132,6 +134,7 @@ export default {
 
     @include mobile {
       gap: 32px;
+      margin-top: 32px;
       width: 100%;
     }
   }
@@ -144,7 +147,8 @@ export default {
     margin-bottom: 22px;
 
     @include mobile {
-      margin-bottom: 17px;
+      margin-bottom: 15px;
+      font-size: 20px;
     }
   }
 

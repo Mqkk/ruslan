@@ -30,12 +30,12 @@ export default {
     margin-bottom: 15px;
 
     @include mobile {
-      margin-bottom: 9px;
+      margin-bottom: 14px;
     }
   }
 
   @include mobile {
-    padding: 23px 16px 24px;
+    padding: 18px 16px 24px;
     width: 100%;
   }
 }

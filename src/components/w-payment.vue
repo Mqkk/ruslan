@@ -2,13 +2,13 @@
   <section class="payment">
     <div class="payment__container container">
       <div class="section-top payment__top">
-        <h2 class="section-top__title title title--h2">Payment methods</h2>
+        <h2 class="section-top__title title title--h2">Payment method</h2>
       </div>
       <div class="payment-swiper">
         <swiper
           :modules="modules"
           :slides-per-view="2.5"
-          :space-between="20"
+          :space-between="25"
           :breakpoints="breakpoints"
           :loop="true"
           @swiper="onSwiper"
@@ -155,12 +155,25 @@ export default {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-right: 0;
     max-width: 1190px;
+
+    @include mobile {
+      padding-right: 0;
+    }
   }
 
   &__top {
     margin-bottom: 24px;
+
+    @include mobile {
+      margin-left: -17px;
+      margin-bottom: 29px;
+    }
+  }
+
+  @include mobile {
+    padding-top: 48px;
+    padding-bottom: 58px;
   }
 }
 

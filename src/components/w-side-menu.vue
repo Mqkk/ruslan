@@ -1,5 +1,6 @@
 <template>
   <div :class="['side-menu', { open: isOpen }]">
+    <div class="side-menu__close" @click="closeSideMenu"></div>
     <div class="side-menu__content">
       <div class="side-menu__top">
         <div class="select">
@@ -58,6 +59,20 @@ export default {
       default: false,
     },
   },
+  computed: {
+    shouldDisableScroll() {
+      return this.isOpen;
+    }
+  },
+  watch: {
+    shouldDisableScroll(val) {
+      if (val) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    }
+  },
   methods: {
     closeSideMenu() {
       this.$emit("close");
@@ -83,10 +98,19 @@ export default {
     right: 0;
   }
 
+  &__close {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+  }
+
   &__content {
+    position: relative;
+    z-index: 100;
     display: flex;
     flex-direction: column;
-    padding: 26px 16px 32px;
+    padding: 21px 16px 30px;
     width: 100%;
     height: 100%;
     max-width: 274px;
@@ -98,7 +122,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 43px;
   }
 
   &__btn-close {
@@ -111,7 +135,7 @@ export default {
   }
 
   &__search {
-    margin-bottom: 44px;
+    margin-bottom: 39px;
   }
 
   &__btn {
@@ -174,7 +198,17 @@ export default {
 
   span {
     position: relative;
-    margin-left: 6px;
+    margin-left: 14px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px dashed #c1cfef;
+    }
   }
 
   &:hover {
@@ -184,16 +218,6 @@ export default {
 
     span {
       color: rgba($text-color, $alpha: 0.7);
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        border-bottom: 1px dashed #c1cfef;
-      }
     }
   }
 }
@@ -204,13 +228,13 @@ export default {
   &__input {
     outline: none;
     border: 1px solid $blue-light-color;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 12.5px 16px;
     padding-right: 45px;
     width: 100%;
     height: 40px;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
     color: $dark-color;
 

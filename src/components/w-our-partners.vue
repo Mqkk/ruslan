@@ -12,7 +12,7 @@
           :initial-slide="2"
           :loop="true"
           :centered-slides="true"
-          :slides-per-view="2.3"
+          :slides-per-view="1.84"
           :space-between="20"
           :breakpoints="breakpoints"
           @swiper="onSwiper"
@@ -132,9 +132,15 @@ export default {
     max-width: 1243px;
   }
 
+  &__top {
+    @include mobile {
+      margin-bottom: 26px;
+    }
+  }
+
   &__btn {
     position: absolute;
-    right: 26px;
+    right: 40px;
     top: 5px;
     border: 1px solid #dde7fd;
     border-radius: 24px;
@@ -156,18 +162,18 @@ export default {
     @include mobile {
       left: 0;
       right: 0;
-      top: 170px;
+      top: 168px;
       margin: 0 auto;
       width: 100%;
       max-width: 328px;
       text-align: center;
-      background-position: 85px 9px;
+      background-position: 87px 9px;
     }
   }
 
   @include mobile {
-    padding-top: 54px;
-    padding-bottom: 120px;
+    padding-top: 48px;
+    padding-bottom: 134px;
   }
 }
 
