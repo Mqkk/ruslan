@@ -1,28 +1,28 @@
 <template>
-  <section class="express-delivery">
-    <div class="express-delivery__container container">
+  <section class="for-what" id="forWhatSection">
+    <div class="for-what__container container">
       <div class="section-top">
         <h2 class="section-top__title title title--h2">
-          Express delivery market revolution
+          Для чего нужна данная система?
         </h2>
         <p class="section-top__descr">
-          Express courier service in the city. We are a reliable logistics
-          partner for delivery services for online stores and restaurants!
+          Система выполняет задачу организации списка сотрудников, которые
+          должны находится в черном списке организации
         </p>
       </div>
-      <ul class="list-reset express-delivery__list">
+      <ul class="list-reset for-what__list">
         <li
-          class="express-delivery__item express-delivery-item"
+          class="for-what__item for-what-item"
           v-for="item in items"
           :key="item.id"
         >
-          <h3 class="express-delivery-item__title title title--h3">
+          <h3 class="for-what-item__title title title--h3">
             {{ item.title }}
           </h3>
-          <div class="express-delivery-item__icon">
+          <div class="for-what-item__icon">
             <img class="img" :src="item.img" :alt="item.title" />
           </div>
-          <p class="express-delivery-item__descr">{{ item.descr }}</p>
+          <p class="for-what-item__descr">{{ item.descr }}</p>
         </li>
       </ul>
     </div>
@@ -30,34 +30,33 @@
 </template>
 
 <script>
-import iconBecomeACourier from "@/assets/img/express-delivery/become-a-courier-icon.svg";
-import iconHelpAndSupport from "@/assets/img/express-delivery/support-icon.svg";
-import iconAffiliateProgram from "@/assets/img/express-delivery/affiliate-program-icon.svg";
+import iconBecomeACourier from "@/assets/img/for-what/become-a-courier-icon.svg";
+import iconHelpAndSupport from "@/assets/img/for-what/support-icon.svg";
+import iconAffiliateProgram from "@/assets/img/for-what/affiliate-program-icon.svg";
 
 export default {
-  name: "w-express-delivery-section",
+  name: "w-for-what-section",
   data() {
     return {
       items: [
         {
           id: 1,
-          title: "Become a Courier",
+          title: "Добавление клиента",
           img: iconBecomeACourier,
-          descr:
-            "You choose a schedule. You decide how much and when to earn. Earnings from day one",
+          descr: "Управляйте списком клиентов, добавляя их в список",
         },
         {
           id: 2,
-          title: "Help & Support",
+          title: "Удаление клиента",
           img: iconHelpAndSupport,
-          descr: "Door-to-door delivery in 90 minutes or at your convenience",
+          descr: "При необходимости вы всегда можете удалить клиента из списка",
         },
         {
           id: 3,
-          title: "Affiliate Program",
+          title: "Поиск клиентов",
           img: iconAffiliateProgram,
           descr:
-            "Use our service and feel\n new quality of this traditional service!",
+            "При большом колличестве клиентов вы всегда можете воспользоваться поиском",
         },
       ],
     };
@@ -66,28 +65,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.express-delivery {
+.for-what {
   position: relative;
+  display: flex;
+  align-items: center;
   padding-top: 91px;
   padding-bottom: 94px;
-  border-bottom: 2px solid $blue-light-color;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -16px;
-    z-index: 1000;
-    margin: 0 auto;
-    width: 100px;
-    height: 28px;
-    background-position: center;
-    background-size: 32px 28px;
-    background-repeat: no-repeat;
-    background-image: url("../assets/img/decor-box.svg");
-    background-color: $light-color;
-  }
+  height: 100vh;
 
   &__container {
     display: flex;
@@ -109,15 +93,16 @@ export default {
   }
 
   @include mobile {
+    height: auto;
     padding-top: 48px;
     padding-bottom: 62px;
   }
 }
 
-.express-delivery-item {
+.for-what-item {
   border: 1px solid $blue-light-color;
   border-radius: 8px;
-  padding: 19px 24px 24px 23px; 
+  padding: 19px 24px 24px 23px;
   background-color: $bg-color;
   transition: background-color 0.1s ease-in-out;
 
@@ -149,20 +134,13 @@ export default {
     line-height: 150%;
   }
 
-  &:first-child {
-    background-position: 120px 75px;
-    background-size: 100px 76px;
-    background-repeat: no-repeat;
-    background-image: url("../assets/img/express-delivery/bg-for-first-child.svg");
-  }
-
   &:nth-child(2) {
     padding: 19px 24px 15px 23px;
 
-    .express-delivery-item__icon {
+    .for-what-item__icon {
       margin-bottom: 36px;
     }
-    .express-delivery-item__descr {
+    .for-what-item__descr {
       max-width: 181px;
       padding-bottom: 4px;
     }
@@ -178,7 +156,7 @@ export default {
     &:nth-child(3) {
       grid-row-start: 2;
 
-      .express-delivery-item__descr {
+      .for-what-item__descr {
         max-width: 220px;
       }
     }

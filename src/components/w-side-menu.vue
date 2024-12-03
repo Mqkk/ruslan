@@ -3,10 +3,7 @@
     <div class="side-menu__close" @click="closeSideMenu"></div>
     <div class="side-menu__content">
       <div class="side-menu__top">
-        <div class="select">
-          <div class="select__icon"></div>
-          <span>NY, Manhattan</span>
-        </div>
+        <div class="select"></div>
         <div class="side-menu__btn-close" @click="closeSideMenu"></div>
       </div>
       <div class="side-menu__search">
@@ -62,16 +59,12 @@ export default {
   computed: {
     shouldDisableScroll() {
       return this.isOpen;
-    }
+    },
   },
   watch: {
     shouldDisableScroll(val) {
-      if (val) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "auto";
-      }
-    }
+      document.body.style.overflow = val ? "hidden" : "auto";
+    },
   },
   methods: {
     closeSideMenu() {

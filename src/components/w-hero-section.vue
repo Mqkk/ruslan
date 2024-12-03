@@ -2,48 +2,48 @@
   <section class="hero">
     <div class="hero__container container">
       <div class="hero__left">
-        <h1 class="hero__title title title--h1">
-          Our service started work in New York
-        </h1>
+        <h1 class="hero__title title title--h1">Ваш черный список клиентов</h1>
         <p class="hero__descr">
-          We make delivery exactly at the time you need - we can start to
-          fulfill the order a few minutes after it arrives, or we can deliver on
-          a specific day and hour.
+          Черный список клиентов - информационная система, содержащая информацию
+          о недобросовестных клиентах организации
         </p>
-        <router-link to="/" class="hero__link read-more">
-          <span class="read-more__text">Read more</span>
+        <button @click="scrollToForWhat" class="hero__link read-more btn-reset">
+          <span class="read-more__text">Для чего</span>
           <span class="read-more__icon"></span>
-        </router-link>
-        <div class="hero__block-video block-video">
-          <h3 class="block-video__title title title--h3">How it works</h3>
-          <div class="block-video__video">
-            <button class="btn-reset block-video__btn"></button>
-          </div>
-        </div>
+        </button>
       </div>
       <div class="hero__right">
-        <w-send-a-parcel />
-        <w-track-a-package />
+        <w-form-wrapper>
+          <w-login-form />
+        </w-form-wrapper>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import wSendAParcel from "./w-send-a-parcel.vue";
-import wTrackAPackage from "./w-track-a-package.vue";
+import wFormWrapper from "./w-form-wrapper.vue";
+import wLoginForm from "./w-login-form.vue";
 
 export default {
   name: "w-hero-section",
   components: {
-    wSendAParcel,
-    wTrackAPackage,
+    wFormWrapper,
+    wLoginForm,
+  },
+  methods: {
+    scrollToForWhat() {
+      const section = document.getElementById("forWhatSection");
+      section && section.scrollIntoView({ behavior: "smooth" });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .hero {
+  padding-top: 70px;
+  height: 100vh;
   background-color: $bg-color;
 
   &__container {
@@ -88,7 +88,7 @@ export default {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    padding-top: 59px;
+    padding-top: 10%;
     padding-left: 71px;
 
     @include mobile {
@@ -130,13 +130,17 @@ export default {
     z-index: 1;
     display: grid;
     gap: 72px;
-    margin-top: 36px;
+    margin-top: 10%;
 
     @include mobile {
       gap: 32px;
       margin-top: 32px;
       width: 100%;
     }
+  }
+
+  @include mobile {
+    height: auto;
   }
 }
 

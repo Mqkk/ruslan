@@ -1,53 +1,70 @@
 <template>
-  <div class="track-a-package">
-    <h3 class="track-a-package__title title title--h3">Track a package</h3>
-    <form class="form search">
+  <div class="search-wrapper">
+    <h3 class="search-wrapper__title title title--h3">Поиск по списку</h3>
+    <form class="form search" @submit.prevent>
       <input
         type="text"
         class="input-reset search__input"
-        placeholder="Enter code"
+        placeholder="Введите имя клиента"
+        :value="modelValue"
+        @input="updateSearchTerm($event)"
       />
-      <button class="btn-reset search__btn"></button>
+      <button class="btn-reset search__btn" type="button"></button>
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: "w-track-a-package",
+  name: "w-search",
+  props: {
+    modelValue: {
+      type: String,
+      default: "",
+    },
+  },
+  methods: {
+    updateSearchTerm(event) {
+      this.$emit("update:modelValue", event.target.value); // Обновляем значение через emit
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.track-a-package {
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
   border-radius: 8px;
-  padding: 26px 40px 32px;
-  width: 360px;
+  padding: 18px;
+  width: 100%;
   background-color: $yellow-color;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 
   &__title {
-    margin-bottom: 15px;
-
-    @include mobile {
-      margin-bottom: 14px;
-    }
+    text-wrap: nowrap;
   }
 
   @include mobile {
     padding: 18px 16px 24px;
     width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
   }
 }
 
 .search {
   position: relative;
+  width: 100%;
 
   &__input {
     outline: none;
     border-radius: 4px;
     padding: 8px 16px;
     width: 100%;
+    min-width: 100%;
     height: 40px;
     font-family: inherit;
     font-size: 16px;

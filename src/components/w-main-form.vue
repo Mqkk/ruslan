@@ -1,47 +1,98 @@
 <template>
-  <div class="send-a-parcel__content">
-    <form class="form send-a-parcel__form">
-      <label for="location" class="form__label">
-        Pickup location
+  <div class="main-form__content">
+    <form class="form main-form__form" @submit.prevent="submitForm">
+      <label for="name" class="form__label">
+        ФИО клиента
         <input
-          id="location"
+          id="name"
           type="text"
           class="input-reset form__input"
-          placeholder="location"
-          v-model="inputLocation"
+          placeholder="Введите ФИО клиента"
+          v-model="name"
+          required
         />
       </label>
-      <label for="dropLocation" class="form__label">
-        Drop location
+      <label for="phone" class="form__label">
+        Номер телефона
         <input
-          id="dropLocation"
+          id="phone"
+          type="tel"
+          class="input-reset form__input"
+          placeholder="Введите номер телефона"
+          v-model="phone"
+          @input="formatPhone"
+          required
+        />
+      </label>
+      <label for="comment" class="form__label">
+        Причина добавления
+        <input
+          id="comment"
           type="text"
           class="input-reset form__input"
-          placeholder="location"
-          v-model="inputDropLocation"
+          placeholder="Введите причину добавления"
+          v-model="comment"
+          required
         />
       </label>
-      <button class="btn-reset btn form__btn">Order</button>
+      <button type="submit" class="btn-reset btn form__btn">
+        Добавить в список
+      </button>
       <button class="btn-reset form__clear" @click.prevent="clearForm">
-        Clear All
+        Очистить все
       </button>
     </form>
   </div>
 </template>
-
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "tab-content",
   data() {
     return {
-      inputLocation: "",
-      inputDropLocation: "",
+      name: "",
+      phone: "",
+      comment: "",
     };
   },
   methods: {
+    ...mapActions(["addClient", "fetchClients"]),
+
+    async submitForm() {
+      if (!this.name || !this.phone || !this.comment) {
+        alert("Пожалуйста, заполните все поля.");
+        return;
+      }
+
+      const newClient = {
+        name: this.name,
+        phone: this.phone,
+        description: this.comment,
+      };
+
+      try {
+        await this.addClient(newClient);
+        alert("Клиент успешно добавлен!");
+
+        this.clearForm();
+        await this.fetchClients();
+      } catch (error) {
+        alert("Не удалось добавить клиента. Попробуйте снова.");
+      }
+    },
+
     clearForm() {
-      this.inputLocation = "";
-      this.inputDropLocation = "";
+      this.name = "";
+      this.phone = "";
+      this.comment = "";
+    },
+
+    formatPhone(event) {
+      let phone = event.target.value.replace(/\D/g, "");
+      if (phone.length > 11) phone = phone.slice(0, 11);
+
+      this.phone = phone;
     },
   },
 };
@@ -52,17 +103,13 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-position: left 23px;
-  background-size: 24px 112px;
-  background-repeat: no-repeat;
-  background-image: url("/src/assets/img/send-a-parcel/decor.svg");
 
   &__label {
     position: relative;
     overflow: hidden;
     display: grid;
     gap: 6px;
-    padding-left: 39px;
+    margin-bottom: 34px;
     padding-bottom: 5px;
     width: 100%;
     font-family: "Intro";
@@ -72,6 +119,10 @@ export default {
     letter-spacing: 0.96px;
     text-transform: uppercase;
     color: #c4cee5;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     &:hover {
       opacity: 0.7;
@@ -83,7 +134,6 @@ export default {
         position: absolute;
         z-index: 10;
         bottom: 2px;
-        margin-left: 39px;
         border-radius: 4px;
         width: 100%;
         height: 2px;
@@ -91,15 +141,10 @@ export default {
       }
     }
 
-    &:first-child {
-      margin-bottom: 34px;
-    }
-
     &::after {
       content: "";
       position: absolute;
       bottom: 2px;
-      margin-left: 39px;
       border-radius: 4px;
       width: 100%;
       height: 2px;

@@ -1,87 +1,35 @@
 <template>
-  <div class="send-a-parcel">
-    <div class="send-a-parcel__top">
-      <h3 class="send-a-parcel__title title title--h3">Send a Parcel</h3>
-      <div class="tooltip send-a-parcel__tooltip">
-        <span class="tooltip__icon"></span>
-        <span class="tooltip__text">
-          <p>
-            A commission is a piece of work that someone is asked to do and is
-            paid for.
-          </p>
-        </span>
-      </div>
+  <div class="form-wrapper">
+    <div class="form-wrapper__top">
+      <h3 class="form-wrapper__title title title--h3">{{ title }}</h3>
     </div>
-    <div class="send-a-parcel__tabs tabs">
-      <ul class="list-reset tabs-nav send-a-parcel__tabs-nav">
-        <li class="tabs-nav__item" v-for="(tab, index) in tabs" :key="index">
-          <button
-            class="btn-reset tabs-nav__btn"
-            @click="activeTab = index"
-            :class="{ active: activeTab === index }"
-          >
-            <img class="img tabs-nav__img" :src="tab.img" :alt="tab.name" />
-            <span class="tabs-nav__name">{{ tab.name }}</span>
-          </button>
-        </li>
-      </ul>
+    <div class="form-wrapper__tabs tabs">
       <div class="tabs-content">
-        <component :is="currentTabComponent" />
+        <slot />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import manIcon from "../assets/img/send-a-parcel/man-icon.png";
-import carIcon from "../assets/img/send-a-parcel/car-icon.png";
-import truckIcon from "../assets/img/send-a-parcel/truck-icon.png";
-import tabContent from "../components/tabs/tab-content.vue";
-import tabContentSecond from "../components/tabs/tab-content-second.vue";
-
 export default {
-  name: "w-send-a-parcel",
-  components: {
-    tabContent,
-    tabContentSecond,
-  },
-  data() {
-    return {
-      activeTab: 0,
-      tabs: [
-        {
-          name: "up to 10lb",
-          img: manIcon,
-          component: "tabContent",
-        },
-        {
-          name: "up to 130lb",
-          img: carIcon,
-          component: "tabContentSecond",
-        },
-        {
-          name: "over 130lb",
-          img: truckIcon,
-          component: "tabContent",
-        },
-      ],
-    };
-  },
-  computed: {
-    currentTabComponent() {
-      return this.tabs[this.activeTab].component;
+  name: "w-form-wrapper",
+  props: {
+    title: {
+      type: String,
+      default: "Войти в систему",
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.send-a-parcel {
+.form-wrapper {
   border: 2px solid $blue-light-color;
   border-radius: 8px;
   padding: 32px 29px 24px;
   width: 100%;
-  height: 500px;
+  height: auto;
   max-width: 360px;
   box-shadow: 0 8px 16px rgba($blue-color, $alpha: 0.08);
   background-color: $light-color;
@@ -114,7 +62,6 @@ export default {
   @include mobile {
     padding: 32px 14px 24px;
     width: 100%;
-    height: 472px;
     max-width: 100%;
   }
 }

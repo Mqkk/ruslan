@@ -1,15 +1,18 @@
 import { createApp } from "vue";
 import { createStore } from "vuex";
 
-import commonActions from "./actions/actions";
-import apiRequests from "./actions/api-requests";
-import getters from "./getters/getters";
 import mutations from "./mutations/mutations";
+import commonActions from "./actions/actions";
+import getters from "./getters/getters";
 
-const actions = { ...commonActions, ...apiRequests };
+const actions = { ...commonActions };
 
 const store = createStore({
-  state: {},
+  state: {
+    token: null,
+    user: null,
+    clients: [],
+  },
   mutations,
   actions,
   getters,
