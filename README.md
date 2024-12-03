@@ -1,3 +1,1 @@
 # vue-project
-
-#whoosh-test
